@@ -30,7 +30,7 @@ jobs:
           path: Plugins
 
       # Show everything on D: drive to confirm paths
-      - name: List D: drive contents
+      - name: List D drive contents
         shell: powershell
         run: Get-ChildItem -Path D:\ -Recurse
 
