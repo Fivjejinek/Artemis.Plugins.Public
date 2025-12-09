@@ -3,7 +3,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Artemis.Core;
-using Artemis.Core.Services;
 using EmbedIO;
 using EmbedIO.Routing;
 using EmbedIO.WebApi;
@@ -14,20 +13,19 @@ namespace Artemis.Plugins.ExtendedWebAPI.Controllers
 {
     internal class ColorController : WebApiController
     {
-        private readonly IRgbServiceProvider _rgbServiceProvider;
+        private readonly RGBSurface _surface;
         private readonly ILogger _logger;
 
-        public ColorController(IRgbServiceProvider rgbServiceProvider, ILogger logger)
+        public ColorController(RGBSurface surface, ILogger logger)
         {
-            _rgbServiceProvider = rgbServiceProvider;
+            _surface = surface;
             _logger = logger;
         }
 
         [Route(HttpVerbs.Get, "/extended-rest-api/get-led-color/{deviceName}/{ledId}")]
         public async Task GetLedColor(string deviceName, string ledId)
         {
-            // IRgbServiceProvider exposes the RGBSurface
-            var device = _rgbServiceProvider.Surface.Devices
+            var device = _surface.Devices
                 .OfType<ArtemisDevice>()
                 .FirstOrDefault(d => d.RgbDevice.DeviceInfo.DeviceName == deviceName);
 
