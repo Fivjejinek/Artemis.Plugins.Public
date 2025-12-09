@@ -3,9 +3,8 @@ name: Build Plugins
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
-  build:
+  setup:
     runs-on: windows-latest
-
     steps:
       - name: Setup .NET SDKs
         uses: actions/setup-dotnet@v4
@@ -36,113 +35,289 @@ jobs:
         with:
           path: Plugins
 
-      - name: Build Plugins
-        run: dotnet publish -c Release .\Plugins\src\Artemis.Plugins.Public.sln
-
-      # Upload artifacts (updated to net9.0 paths)
-      - name: Upload Artemis.Plugins.ExtendedWebAPI
+  extendedwebapi:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build ExtendedWebAPI
+        run: dotnet publish -c Release .\Plugins\src\Collections\Artemis.Plugins.ExtendedWebAPI\Artemis.Plugins.ExtendedWebAPI.csproj
+      - name: Upload ExtendedWebAPI
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.ExtendedWebAPI
           path: .\Plugins\src\Collections\Artemis.Plugins.ExtendedWebAPI\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.DataModelExpansions.DisplaySettings
+  displaysettings:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build DisplaySettings
+        run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.DisplaySettings\Artemis.Plugins.DataModelExpansions.DisplaySettings.csproj
+      - name: Upload DisplaySettings
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.DisplaySettings
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.DisplaySettings\bin\x64\Release\net9.0-windows\publish
 
-      - name: Upload Artemis.Plugins.DataModelExpansions.Teams
+  teams:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build Teams
+        run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.Teams\Artemis.Plugins.DataModelExpansions.Teams.csproj
+      - name: Upload Teams
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.Teams
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.Teams\bin\x64\Release\net9.0-windows\publish
 
-      - name: Upload Artemis.Plugins.DataModelExpansions.OpenWeather
+  openweather:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build OpenWeather
+        run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.OpenWeather\Artemis.Plugins.DataModelExpansions.OpenWeather.csproj
+      - name: Upload OpenWeather
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.OpenWeather
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.OpenWeather\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.DataModelExpansions.PowerPlan
+  powerplan:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build PowerPlan
+        run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.PowerPlan\Artemis.Plugins.DataModelExpansions.PowerPlan.csproj
+      - name: Upload PowerPlan
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.PowerPlan
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.PowerPlan\bin\x64\Release\net9.0-windows\publish
 
-      - name: Upload Artemis.Plugins.DataModelExpansions.Profiles
+  profiles:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build Profiles
+        run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.Profiles\Artemis.Plugins.DataModelExpansions.Profiles.csproj
+      - name: Upload Profiles
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.Profiles
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.Profiles\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.DataModelExpansions.YTMdesktop
+  ytmdesktop:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build YTMdesktop
+        run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.YTMdesktop\Artemis.Plugins.DataModelExpansions.YTMdesktop.csproj
+      - name: Upload YTMdesktop
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.YTMdesktop
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.YTMdesktop\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.Devices.PowerPlay
+  powerplay:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build PowerPlay
+        run: dotnet publish -c Release .\Plugins\src\Device\PowerPlay\Artemis.Plugins.Devices.PowerPlay\Artemis.Plugins.Devices.PowerPlay.csproj
+      - name: Upload PowerPlay
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Devices.PowerPlay
           path: .\Plugins\src\Device\PowerPlay\Artemis.Plugins.Devices.PowerPlay\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.Devices.YeeLight
+  yeelight:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build YeeLight
+        run: dotnet publish -c Release .\Plugins\src\Device\YeeLight\Artemis.Plugins.Devices.YeeLight\Artemis.Plugins.Devices.YeeLight.csproj
+      - name: Upload YeeLight
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Devices.YeeLight
           path: .\Plugins\src\Device\YeeLight\Artemis.Plugins.Devices.YeeLight\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.LayerBrushes.ConnectingDots
+  connectingdots:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build ConnectingDots
+        run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.ConnectingDots\Artemis.Plugins.LayerBrushes.ConnectingDots.csproj
+      - name: Upload ConnectingDots
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.ConnectingDots
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.ConnectingDots\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.LayerBrushes.DrippingPaint
+  drippingpaint:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build DrippingPaint
+        run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.DrippingPaint\Artemis.Plugins.LayerBrushes.DrippingPaint.csproj
+      - name: Upload DrippingPaint
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.DrippingPaint
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.DrippingPaint\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.LayerBrushes.Nexus
+  nexus:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build Nexus
+        run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Nexus\Artemis.Plugins.LayerBrushes.Nexus.csproj
+      - name: Upload Nexus
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Nexus
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Nexus\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.LayerBrushes.Ripples
+  ripples:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build Ripples
+        run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Ripples\Artemis.Plugins.LayerBrushes.Ripples.csproj
+      - name: Upload Ripples
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Ripples
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Ripples\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.LayerBrushes.Shuffle
+  shuffle:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build Shuffle
+        run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Shuffle\Artemis.Plugins.LayerBrushes.Shuffle.csproj
+      - name: Upload Shuffle
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Shuffle
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Shuffle\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.LayerBrushes.SolidPercentage
+  solidpercentage:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build SolidPercentage
+        run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.SolidPercentage\Artemis.Plugins.LayerBrushes.SolidPercentage.csproj
+      - name: Upload SolidPercentage
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.SolidPercentage
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.SolidPercentage\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.LayerEffect.FlickeringLights
+  flickeringlights:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build FlickeringLights
+        run: dotnet publish -c Release .\Plugins\src\LayerEffects\Artemis.Plugins.LayerEffect.FlickeringLights\Artemis.Plugins.LayerEffect.FlickeringLights.csproj
+      - name: Upload FlickeringLights
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerEffect.FlickeringLights
           path: .\Plugins\src\LayerEffects\Artemis.Plugins.LayerEffect.FlickeringLights\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.Modules.Json
+  jsonmodule:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build Json Module
+        run: dotnet publish -c Release .\Plugins\src\Modules\Artemis.Plugins.Modules.Json\Artemis.Plugins.Modules.Json.csproj
+      - name: Upload Json Module
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Modules.Json
           path: .\Plugins\src\Modules\Artemis.Plugins.Modules.Json\bin\x64\Release\net9.0\publish
 
-      - name: Upload Artemis.Plugins.Nodes.Extra
+  nodesextra:
+    runs-on: windows-latest
+    needs: setup
+    steps:
+      - name: Setup .NET 9
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+      - name: Build Nodes Extra
+        run: dotnet publish -c Release .\Plugins\src\Nodes\Artemis.Plugins.Nodes.Extra\Artemis.Plugins.Nodes.Extra.csproj
+      - name: Upload Nodes Extra
         uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Nodes.Extra
