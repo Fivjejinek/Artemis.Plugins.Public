@@ -16,8 +16,9 @@ namespace Artemis.Plugins.ExtendedWebAPI.Features
 
         public override void Enable()
         {
-            _webServerService.AddController<WindowsController>(this);
-            _webServerService.AddController<ColorController>(this);
+            // Supply a base path string for each controller
+            _webServerService.AddController<WindowsController>(this, "/extended-rest-api/windows");
+            _webServerService.AddController<ColorController>(this, "/extended-rest-api/colors");
         }
 
         public override void Disable()
