@@ -29,6 +29,11 @@ jobs:
           repository: Fivjejinek/Artemis.Plugins.Public
           path: Plugins
 
+      # Show everything on D: drive to confirm paths
+      - name: List D: drive contents
+        shell: powershell
+        run: Get-ChildItem -Path D:\ -Recurse
+
       # Build Artemis core projects so references are available
       - name: Build Artemis Core
         run: dotnet build .\Artemis\src\Artemis.Core\Artemis.Core.csproj -c Release
