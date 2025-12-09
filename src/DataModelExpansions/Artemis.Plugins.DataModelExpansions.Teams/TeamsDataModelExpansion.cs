@@ -1,9 +1,8 @@
-using Artemis.Core.Modules;
 using Artemis.Core;
-using System.Collections.Generic;
+using Artemis.Core.Modules;
 using Artemis.Plugins.DataModelExpansions.Teams.DataModels;
 using Artemis.Plugins.DataModelExpansions.Teams.TeamsPresence;
-using Artemis.Core.Services;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -14,7 +13,6 @@ namespace Artemis.Plugins.DataModelExpansions.Teams
     {
         #region Variables declarations
 
-        private readonly IProcessService _processService;
         private static TeamsStateReader _teamsStateReader;
         private static CameraStateReader _cameraStateReader;
         private const string TEAMS_PROCESS_NAME = "Teams";
@@ -23,9 +21,8 @@ namespace Artemis.Plugins.DataModelExpansions.Teams
 
         #region Constructor
 
-        public Teams(IProcessService processService)
+        public Teams()
         {
-            _processService = processService;
         }
 
         // Allow Datamodel available to all profiles
@@ -51,9 +48,8 @@ namespace Artemis.Plugins.DataModelExpansions.Teams
 
         private bool TeamsIsRunning()
         {
-            // Use ProcessService if available, otherwise fall back to System.Diagnostics
-            return _processService.GetProcesses().Any(p => p.ProcessName.Equals(TEAMS_PROCESS_NAME, System.StringComparison.OrdinalIgnoreCase))
-                   || Process.GetProcessesByName(TEAMS_PROCESS_NAME).Any();
+            // Simple check using System.Diagnostics
+            return Process.GetProcessesByName(TEAMS_PROCESS_NAME).Any();
         }
 
         private void _cameraStateReader_CameraOwnerChanged(object sender, CameraOwnerChangedEventArgs e)
