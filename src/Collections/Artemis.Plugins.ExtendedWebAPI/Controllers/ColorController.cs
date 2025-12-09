@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,29 +14,32 @@ namespace Artemis.Plugins.ExtendedWebAPI.Controllers
 {
     internal class ColorController : WebApiController
     {
-        private IRGBDeviceService _rgbService;
-        private ILogger _logger;
-        public ColorController(IRgbService rgbService, ILogger logger)
+        private readonly IRgbDeviceService _rgbDeviceService;
+        private readonly ILogger _logger;
+
+        public ColorController(IRgbDeviceService rgbDeviceService, ILogger logger)
         {
-            _rgbService = rgbService;
+            _rgbDeviceService = rgbDeviceService;
             _logger = logger;
         }
 
         [Route(HttpVerbs.Get, "/extended-rest-api/get-led-color/{deviceName}/{ledId}")]
         public async Task GetLedColor(string deviceName, string ledId)
         {
-            ArtemisDevice device = _rgbService.Devices.FirstOrDefault(d => d.RgbDevice.DeviceInfo.DeviceName == deviceName);
+            // IRgbDeviceService exposes EnabledDevices
+            ArtemisDevice device = _rgbDeviceService.EnabledDevices
+                .FirstOrDefault(d => d.RgbDevice.DeviceInfo.DeviceName == deviceName);
 
             if (device == null)
             {
-                string message = $"Device  {deviceName} don't exists";
+                string message = $"Device {deviceName} doesn't exist";
                 _logger.Information(message);
                 throw HttpException.NotFound(message);
             }
 
-            if (!(Enum.TryParse(typeof(LedId), ledId, true, out object parsedLedId)))
+            if (!Enum.TryParse(typeof(LedId), ledId, true, out object parsedLedId))
             {
-                string message = $"Led Id {ledId} don't exists";
+                string message = $"Led Id {ledId} doesn't exist";
                 _logger.Information(message);
                 throw HttpException.NotFound(message);
             }
@@ -45,14 +48,14 @@ namespace Artemis.Plugins.ExtendedWebAPI.Controllers
 
             if (led == null)
             {
-                string message = $"Led Id {ledId} don't exists in device {deviceName}";
+                string message = $"Led Id {ledId} doesn't exist in device {deviceName}";
                 _logger.Information(message);
                 throw HttpException.NotFound(message);
             }
 
             HttpContext.Response.ContentType = "text/plain";
             await using var writer = HttpContext.OpenResponseText(new UTF8Encoding(false));
-            await writer.WriteAsync(led!.Color.AsRGBHexString());
+            await writer.WriteAsync(led.Color.AsRGBHexString());
         }
     }
 }
