@@ -42,7 +42,7 @@ jobs:
           repository: Fivjejinek/Artemis.Plugins.Public
           path: Plugins
 
-      - name: Log entire D: drive
+      - name: Log entire D drive
         run: dir D:\ /s
 
   extendedwebapi:
