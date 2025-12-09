@@ -4,7 +4,7 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    runs-on: [windows-latest]
+    runs-on: windows-latest
 
     steps:
       - name: Setup .NET 7.0
@@ -21,136 +21,126 @@ jobs:
 
       - name: Build Artemis Core
         run: dotnet build .\Artemis\src\Artemis.Core\Artemis.Core.csproj
-        
+
       - name: Build Artemis UI Shared
         run: dotnet build .\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj
 
-      - name: Build Artemis UI Shared
+      - name: Build Artemis UI
         run: dotnet build .\Artemis\src\Artemis.UI\Artemis.UI.csproj
 
       - name: Clone Plugins
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           path: Plugins
 
       - name: Build Plugins
         run: dotnet publish -c Release .\Plugins\src\Artemis.Plugins.Public.sln
 
+      # Upload artifacts (updated to v4)
       - name: Upload Artemis.Plugins.ExtendedWebAPI
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.ExtendedWebAPI
           path: .\Plugins\src\Collections\Artemis.Plugins.ExtendedWebAPI\bin\x64\Release\net6.0\publish
 
       - name: Upload Artemis.Plugins.DataModelExpansions.DisplaySettings
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.DisplaySettings
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.DisplaySettings\bin\x64\Release\net6.0-windows\publish
 
       - name: Upload Artemis.Plugins.DataModelExpansions.Teams
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.Teams
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.Teams\bin\x64\Release\net6.0-windows\publish
 
       - name: Upload Artemis.Plugins.DataModelExpansions.OpenWeather
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.OpenWeather
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.OpenWeather\bin\x64\Release\net6.0\publish
 
       - name: Upload Artemis.Plugins.DataModelExpansions.PowerPlan
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.PowerPlan
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.PowerPlan\bin\x64\Release\net6.0-windows\publish
 
       - name: Upload Artemis.Plugins.DataModelExpansions.Profiles
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.Profiles
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.Profiles\bin\x64\Release\net6.0\publish
 
       - name: Upload Artemis.Plugins.DataModelExpansions.YTMdesktop
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.YTMdesktop
           path: .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.YTMdesktop\bin\x64\Release\net6.0\publish
 
-      - name: Artemis.Plugins.Devices.PowerPlay
-        uses: actions/upload-artifact@v2
+      - name: Upload Artemis.Plugins.Devices.PowerPlay
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Devices.PowerPlay
           path: .\Plugins\src\Device\PowerPlay\Artemis.Plugins.Devices.PowerPlay\bin\x64\Release\net6.0\publish
 
-      - name: Artemis.Plugins.Devices.YeeLight
-        uses: actions/upload-artifact@v2
+      - name: Upload Artemis.Plugins.Devices.YeeLight
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Devices.YeeLight
           path: .\Plugins\src\Device\YeeLight\Artemis.Plugins.Devices.YeeLight\bin\x64\Release\net6.0\publish
 
-      - name: Artemis.Plugins.LayerBrushes.ConnectingDots
-        uses: actions/upload-artifact@v2
+      - name: Upload Artemis.Plugins.LayerBrushes.ConnectingDots
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.ConnectingDots
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.ConnectingDots\bin\x64\Release\net6.0\publish
 
-      - name: Artemis.Plugins.LayerBrushes.DrippingPaint
-        uses: actions/upload-artifact@v2
+      - name: Upload Artemis.Plugins.LayerBrushes.DrippingPaint
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.DrippingPaint
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.DrippingPaint\bin\x64\Release\net6.0\publish
 
-      - name: Artemis.Plugins.LayerBrushes.Nexus
-        uses: actions/upload-artifact@v2
+      - name: Upload Artemis.Plugins.LayerBrushes.Nexus
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Nexus
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Nexus\bin\x64\Release\net6.0\publish
 
-
-      - name: Artemis.Plugins.LayerBrushes.Ripples
-        uses: actions/upload-artifact@v2
+      - name: Upload Artemis.Plugins.LayerBrushes.Ripples
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Ripples
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Ripples\bin\x64\Release\net6.0\publish
 
-      - name: Artemis.Plugins.LayerBrushes.Shuffle
-        uses: actions/upload-artifact@v2
+      - name: Upload Artemis.Plugins.LayerBrushes.Shuffle
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Shuffle
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Shuffle\bin\x64\Release\net6.0\publish
 
-          
-      - name: Artemis.Plugins.LayerBrushes.SolidPercentage
-        uses: actions/upload-artifact@v2
+      - name: Upload Artemis.Plugins.LayerBrushes.SolidPercentage
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.SolidPercentage
           path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.SolidPercentage\bin\x64\Release\net6.0\publish
 
-
-      - name: Artemis.Plugins.LayerEffect.FlickeringLights
-        uses: actions/upload-artifact@v2
+      - name: Upload Artemis.Plugins.LayerEffect.FlickeringLights
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerEffect.FlickeringLights
           path: .\Plugins\src\LayerEffects\Artemis.Plugins.LayerEffect.FlickeringLights\bin\x64\Release\net6.0\publish
 
-
-      - name: Artemis.Plugins.Modules.Json
-        uses: actions/upload-artifact@v2
+      - name: Upload Artemis.Plugins.Modules.Json
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Modules.Json
           path: .\Plugins\src\Modules\Artemis.Plugins.Modules.Json\bin\x64\Release\net6.0\publish
 
-
-      - name: Artemis.Plugins.LayerBrushes.ConnectingDots
-        uses: actions/upload-artifact@v2
-        with:
-          name: Artemis.Plugins.LayerBrushes.ConnectingDots
-          path: .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.ConnectingDots\bin\x64\Release\net6.0\publish
-
-      - name: Artemis.Plugins.LayerBrushes.ConnectingDots
-        uses: actions/upload-artifact@v2
+      - name: Upload Artemis.Plugins.Nodes.Extra
+        uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Nodes.Extra
           path: .\Plugins\src\Nodes\Artemis.Plugins.Nodes.Extra\bin\x64\Release\net6.0\publish
