@@ -14,8 +14,19 @@ jobs:
             6.0.x
             9.0.x
 
+      - name: Cache Artemis build
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.nuget/packages
+            Artemis/src/**/bin
+            Artemis/src/**/obj
+          key: ${{ runner.os }}-artemis-${{ hashFiles('Artemis/**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-artemis-
+
       - name: Clone Artemis
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: Artemis-RGB/Artemis
           ref: development
@@ -37,14 +48,14 @@ jobs:
         run: dotnet build .\Artemis\src\Artemis.WebClient.Updating\Artemis.WebClient.Updating.csproj -c Release
 
       - name: Clone Plugins
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: Fivjejinek/Artemis.Plugins.Public
           path: Plugins
 
       - name: Log entire D drive
+        shell: powershell
         run: Get-ChildItem -Path D:\ -Recurse
-
 
   extendedwebapi:
     runs-on: windows-latest
