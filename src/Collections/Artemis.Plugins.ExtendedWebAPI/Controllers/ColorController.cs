@@ -14,7 +14,7 @@ namespace Artemis.Plugins.ExtendedWebAPI.Controllers
 {
     internal class ColorController : WebApiController
     {
-        private IRgbService _rgbService;
+        private IRGBDeviceService _rgbService;
         private ILogger _logger;
         public ColorController(IRgbService rgbService, ILogger logger)
         {
