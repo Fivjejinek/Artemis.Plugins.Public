@@ -48,9 +48,9 @@ jobs:
         with:
           name: Artemis.Plugins.ExtendedWebAPI
           path: |
-            Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/bin/Release/net9.0-windows/publish/Artemis.Plugins.ExtendedWebAPI.dll
-            Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/bin/Release/net9.0-windows/publish/plugin.json
-            Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/bin/Release/net9.0-windows/publish/*.png
+            Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/bin/Release/net9.0/publish/Artemis.Plugins.ExtendedWebAPI.dll
+            Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/bin/Release/net9.0/publish/plugin.json
+            Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/bin/Release/net9.0/publish/*.png
 
       - name: Publish DisplaySettings
         run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.DisplaySettings/Artemis.Plugins.DataModelExpansions.DisplaySettings.csproj
