@@ -42,128 +42,167 @@ jobs:
         run: dotnet build -c Release Artemis/src/Artemis.WebClient.Updating/Artemis.WebClient.Updating.csproj
 
       # --- Build & Upload Plugins sequentially ---
-      - name: Build ExtendedWebAPI
-        run: dotnet build -c Release Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/Artemis.Plugins.ExtendedWebAPI.csproj
+      - name: Publish ExtendedWebAPI
+        run: dotnet publish -c Release Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/Artemis.Plugins.ExtendedWebAPI.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.ExtendedWebAPI
-          path: Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/bin/Release/**
+          path: |
+            Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/bin/Release/net9.0-windows/publish/Artemis.Plugins.ExtendedWebAPI.dll
+            Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/bin/Release/net9.0-windows/publish/plugin.json
+            Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/bin/Release/net9.0-windows/publish/*.png
 
-      - name: Build DisplaySettings
-        run: dotnet build -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.DisplaySettings/Artemis.Plugins.DataModelExpansions.DisplaySettings.csproj
+      - name: Publish DisplaySettings
+        run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.DisplaySettings/Artemis.Plugins.DataModelExpansions.DisplaySettings.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.DisplaySettings
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.DisplaySettings/bin/Release/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.DisplaySettings/bin/Release/net9.0-windows/publish/Artemis.Plugins.DataModelExpansions.DisplaySettings.dll
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.DisplaySettings/bin/Release/net9.0-windows/publish/plugin.json
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.DisplaySettings/bin/Release/net9.0-windows/publish/*.png
 
-      - name: Build Teams
-        run: dotnet build -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Teams/Artemis.Plugins.DataModelExpansions.Teams.csproj
+      - name: Publish Teams
+        run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Teams/Artemis.Plugins.DataModelExpansions.Teams.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.Teams
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Teams/bin/Release/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Teams/bin/Release/net9.0-windows/publish/Artemis.Plugins.DataModelExpansions.Teams.dll
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Teams/bin/Release/net9.0-windows/publish/plugin.json
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Teams/bin/Release/net9.0-windows/publish/*.png
 
-      - name: Build OpenWeather
-        run: dotnet build -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.OpenWeather/Artemis.Plugins.DataModelExpansions.OpenWeather.csproj
+      - name: Publish OpenWeather
+        run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.OpenWeather/Artemis.Plugins.DataModelExpansions.OpenWeather.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.OpenWeather
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.OpenWeather/bin/Release/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.OpenWeather/bin/Release/net9.0-windows/publish/Artemis.Plugins.DataModelExpansions.OpenWeather.dll
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.OpenWeather/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build PowerPlan
-        run: dotnet build -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.PowerPlan/Artemis.Plugins.DataModelExpansions.PowerPlan.csproj
+      - name: Publish PowerPlan
+        run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.PowerPlan/Artemis.Plugins.DataModelExpansions.PowerPlan.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.PowerPlan
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.PowerPlan/bin/Release/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.PowerPlan/bin/Release/net9.0-windows/publish/Artemis.Plugins.DataModelExpansions.PowerPlan.dll
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.PowerPlan/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build Profiles
-        run: dotnet build -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Profiles/Artemis.Plugins.DataModelExpansions.Profiles.csproj
+      - name: Publish Profiles
+        run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Profiles/Artemis.Plugins.DataModelExpansions.Profiles.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.Profiles
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Profiles/bin/Release/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Profiles/bin/Release/net9.0-windows/publish/Artemis.Plugins.DataModelExpansions.Profiles.dll
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Profiles/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build YTMdesktop
-        run: dotnet build -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.YTMdesktop/Artemis.Plugins.DataModelExpansions.YTMdesktop.csproj
+      - name: Publish YTMdesktop
+        run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.YTMdesktop/Artemis.Plugins.DataModelExpansions.YTMdesktop.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.YTMdesktop
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.YTMdesktop/bin/Release/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.YTMdesktop/bin/Release/net9.0-windows/publish/Artemis.Plugins.DataModelExpansions.YTMdesktop.dll
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.YTMdesktop/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build PowerPlay
-        run: dotnet build -c Release Plugins/src/Device/PowerPlay/Artemis.Plugins.Devices.PowerPlay/Artemis.Plugins.Devices.PowerPlay.csproj
+      - name: Publish PowerPlay
+        run: dotnet publish -c Release Plugins/src/Device/PowerPlay/Artemis.Plugins.Devices.PowerPlay/Artemis.Plugins.Devices.PowerPlay.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Devices.PowerPlay
-          path: Plugins/src/Device/PowerPlay/Artemis.Plugins.Devices.PowerPlay/bin/Release/**
+          path: |
+            Plugins/src/Device/PowerPlay/Artemis.Plugins.Devices.PowerPlay/bin/Release/net9.0-windows/publish/Artemis.Plugins.Devices.PowerPlay.dll
+            Plugins/src/Device/PowerPlay/Artemis.Plugins.Devices.PowerPlay/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build YeeLight
-        run: dotnet build -c Release Plugins/src/Device/YeeLight/Artemis.Plugins.Devices.YeeLight/Artemis.Plugins.Devices.YeeLight.csproj
+      - name: Publish YeeLight
+        run: dotnet publish -c Release Plugins/src/Device/YeeLight/Artemis.Plugins.Devices.YeeLight/Artemis.Plugins.Devices.YeeLight.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Devices.YeeLight
-          path: Plugins/src/Device/YeeLight/Artemis.Plugins.Devices.YeeLight/bin/Release/**
+          path: |
+            Plugins/src/Device/YeeLight/Artemis.Plugins.Devices.YeeLight/bin/Release/net9.0-windows/publish/Artemis.Plugins.Devices.YeeLight.dll
+            Plugins/src/Device/YeeLight/Artemis.Plugins.Devices.YeeLight/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build ConnectingDots
-        run: dotnet build -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.ConnectingDots/Artemis.Plugins.LayerBrushes.ConnectingDots.csproj
+      - name: Publish ConnectingDots
+        run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.ConnectingDots/Artemis.Plugins.LayerBrushes.ConnectingDots.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.ConnectingDots
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.ConnectingDots/bin/Release/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.ConnectingDots/bin/Release/net9.0-windows/publish/Artemis.Plugins.LayerBrushes.ConnectingDots.dll
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.ConnectingDots/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build DrippingPaint
-        run: dotnet build -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.DrippingPaint/Artemis.Plugins.LayerBrushes.DrippingPaint.csproj
+      - name: Publish DrippingPaint
+        run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.DrippingPaint/Artemis.Plugins.LayerBrushes.DrippingPaint.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.DrippingPaint
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.DrippingPaint/bin/Release/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.DrippingPaint/bin/Release/net9.0-windows/publish/Artemis.Plugins.LayerBrushes.DrippingPaint.dll
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.DrippingPaint/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build Nexus
-        run: dotnet build -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Nexus/Artemis.Plugins.LayerBrushes.Nexus.csproj
+      - name: Publish Nexus
+        run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Nexus/Artemis.Plugins.LayerBrushes.Nexus.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Nexus
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Nexus/bin/Release/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Nexus/bin/Release/net9.0-windows/publish/Artemis.Plugins.LayerBrushes.Nexus.dll
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Nexus/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build Ripples
-        run: dotnet build -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Ripples/Artemis.Plugins.LayerBrushes.Ripples.csproj
+      - name: Publish Ripples
+        run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Ripples/Artemis.Plugins.LayerBrushes.Ripples.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Ripples
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Ripples/bin/Release/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Ripples/bin/Release/net9.0-windows/publish/Artemis.Plugins.LayerBrushes.Ripples.dll
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Ripples/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build Shuffle
-        run: dotnet build -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Shuffle/Artemis.Plugins.LayerBrushes.Shuffle.csproj
+      - name: Publish Shuffle
+        run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Shuffle/Artemis.Plugins.LayerBrushes.Shuffle.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Shuffle
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Shuffle/bin/Release/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Shuffle/bin/Release/net9.0-windows/publish/Artemis.Plugins.LayerBrushes.Shuffle.dll
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Shuffle/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build SolidPercentage
-        run: dotnet build -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.SolidPercentage/Artemis.Plugins.LayerBrushes.SolidPercentage.csproj
+      - name: Publish SolidPercentage
+        run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.SolidPercentage/Artemis.Plugins.LayerBrushes.SolidPercentage.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.SolidPercentage
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.SolidPercentage/bin/Release/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.SolidPercentage/bin/Release/net9.0-windows/publish/Artemis.Plugins.LayerBrushes.SolidPercentage.dll
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.SolidPercentage/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build FlickeringLights
-        run: dotnet build -c Release Plugins/src/LayerEffects/Artemis.Plugins.LayerEffect.FlickeringLights/Artemis.Plugins.LayerEffect.FlickeringLights.csproj
+      - name: Publish FlickeringLights
+        run: dotnet publish -c Release Plugins/src/LayerEffects/Artemis.Plugins.LayerEffect.FlickeringLights/Artemis.Plugins.LayerEffect.FlickeringLights.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerEffect.FlickeringLights
-          path: Plugins/src/LayerEffects/Artemis.Plugins.LayerEffect.FlickeringLights/bin/Release/**
+          path: |
+            Plugins/src/LayerEffects/Artemis.Plugins.LayerEffect.FlickeringLights/bin/Release/net9.0-windows/publish/Artemis.Plugins.LayerEffect.FlickeringLights.dll
+            Plugins/src/LayerEffects/Artemis.Plugins.LayerEffect.FlickeringLights/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build JsonModule
-        run: dotnet build -c Release Plugins/src/Modules/Artemis.Plugins.Modules.Json/Artemis.Plugins.Modules.Json.csproj
+      - name: Publish JsonModule
+        run: dotnet publish -c Release Plugins/src/Modules/Artemis.Plugins.Modules.Json/Artemis.Plugins.Modules.Json.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Modules.Json
-          path: Plugins/src/Modules/Artemis.Plugins.Modules.Json/bin/Release/**
+          path: |
+            Plugins/src/Modules/Artemis.Plugins.Modules.Json/bin/Release/net9.0-windows/publish/Artemis.Plugins.Modules.Json.dll
+            Plugins/src/Modules/Artemis.Plugins.Modules.Json/bin/Release/net9.0-windows/publish/plugin.json
 
-      - name: Build NodesExtra
-        run: dotnet build -c Release Plugins/src/Nodes/Artemis.Plugins.Nodes.Extra/Artemis.Plugins.Nodes.Extra.csproj
+      - name: Publish NodesExtra
+        run: dotnet publish -c Release Plugins/src/Nodes/Artemis.Plugins.Nodes.Extra/Artemis.Plugins.Nodes.Extra.csproj
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Nodes.Extra
-          path: Plugins/src/Nodes/Artemis.Plugins.Nodes.Extra/bin/Release/**
+          path: |
+            Plugins/src/Nodes/Artemis.Plugins.Nodes.Extra/bin/Release/net9.0-windows/publish/Artemis.Plugins.Nodes.Extra.dll
+            Plugins/src/Nodes/Artemis.Plugins.Nodes.Extra/bin/Release/net9.0-windows/publish/plugin.json
