@@ -20,9 +20,9 @@
 
   <!-- Replace DLL references with project references -->
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.Core\Artemis.Core.csproj" />
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj" />
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI\Artemis.UI.csproj" />
+    <ProjectReference Include="..\Artemis\src\Artemis.Core\Artemis.Core.csproj" />
+    <ProjectReference Include="..\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj" />
+    <ProjectReference Include="..\Artemis\src\Artemis.UI\Artemis.UI.csproj" />
   </ItemGroup>
 
   <ItemGroup>
