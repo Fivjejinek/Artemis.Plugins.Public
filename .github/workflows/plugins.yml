@@ -43,7 +43,8 @@ jobs:
           path: Plugins
 
       - name: Log entire D drive
-        run: dir D:\ /s
+        run: Get-ChildItem -Path D:\ -Recurse
+
 
   extendedwebapi:
     runs-on: windows-latest
