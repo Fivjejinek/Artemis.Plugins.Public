@@ -48,7 +48,7 @@ jobs:
         run: dotnet build .\Artemis\src\Artemis.WebClient.Updating\Artemis.WebClient.Updating.csproj -c Release
 
       - name: Clone Plugins
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
         with:
           repository: Fivjejinek/Artemis.Plugins.Public
           path: Artemis.Plugins.Public
