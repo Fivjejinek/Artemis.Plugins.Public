@@ -44,10 +44,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\Collections /s
       - name: Build ExtendedWebAPI
         run: dotnet publish -c Release .\Plugins\src\Collections\Artemis.Plugins.ExtendedWebAPI\Artemis.Plugins.ExtendedWebAPI.csproj
       - name: Upload ExtendedWebAPI
@@ -60,10 +58,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 6
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 6.0.x
+      - name: Log directory
+        run: dir Plugins\src\DataModelExpansions /s
       - name: Build DisplaySettings
         run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.DisplaySettings\Artemis.Plugins.DataModelExpansions.DisplaySettings.csproj
       - name: Upload DisplaySettings
@@ -76,10 +72,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 6
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 6.0.x
+      - name: Log directory
+        run: dir Plugins\src\DataModelExpansions /s
       - name: Build Teams
         run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.Teams\Artemis.Plugins.DataModelExpansions.Teams.csproj
       - name: Upload Teams
@@ -92,10 +86,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\DataModelExpansions /s
       - name: Build OpenWeather
         run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.OpenWeather\Artemis.Plugins.DataModelExpansions.OpenWeather.csproj
       - name: Upload OpenWeather
@@ -108,10 +100,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 6
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 6.0.x
+      - name: Log directory
+        run: dir Plugins\src\DataModelExpansions /s
       - name: Build PowerPlan
         run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.PowerPlan\Artemis.Plugins.DataModelExpansions.PowerPlan.csproj
       - name: Upload PowerPlan
@@ -124,10 +114,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\DataModelExpansions /s
       - name: Build Profiles
         run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.Profiles\Artemis.Plugins.DataModelExpansions.Profiles.csproj
       - name: Upload Profiles
@@ -140,10 +128,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\DataModelExpansions /s
       - name: Build YTMdesktop
         run: dotnet publish -c Release .\Plugins\src\DataModelExpansions\Artemis.Plugins.DataModelExpansions.YTMdesktop\Artemis.Plugins.DataModelExpansions.YTMdesktop.csproj
       - name: Upload YTMdesktop
@@ -156,10 +142,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\Device /s
       - name: Build PowerPlay
         run: dotnet publish -c Release .\Plugins\src\Device\PowerPlay\Artemis.Plugins.Devices.PowerPlay\Artemis.Plugins.Devices.PowerPlay.csproj
       - name: Upload PowerPlay
@@ -172,10 +156,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\Device /s
       - name: Build YeeLight
         run: dotnet publish -c Release .\Plugins\src\Device\YeeLight\Artemis.Plugins.Devices.YeeLight\Artemis.Plugins.Devices.YeeLight.csproj
       - name: Upload YeeLight
@@ -188,10 +170,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\LayerBrushes /s
       - name: Build ConnectingDots
         run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.ConnectingDots\Artemis.Plugins.LayerBrushes.ConnectingDots.csproj
       - name: Upload ConnectingDots
@@ -204,10 +184,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\LayerBrushes /s
       - name: Build DrippingPaint
         run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.DrippingPaint\Artemis.Plugins.LayerBrushes.DrippingPaint.csproj
       - name: Upload DrippingPaint
@@ -220,10 +198,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\LayerBrushes /s
       - name: Build Nexus
         run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Nexus\Artemis.Plugins.LayerBrushes.Nexus.csproj
       - name: Upload Nexus
@@ -236,10 +212,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\LayerBrushes /s
       - name: Build Ripples
         run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Ripples\Artemis.Plugins.LayerBrushes.Ripples.csproj
       - name: Upload Ripples
@@ -252,10 +226,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\LayerBrushes /s
       - name: Build Shuffle
         run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.Shuffle\Artemis.Plugins.LayerBrushes.Shuffle.csproj
       - name: Upload Shuffle
@@ -268,10 +240,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\LayerBrushes /s
       - name: Build SolidPercentage
         run: dotnet publish -c Release .\Plugins\src\LayerBrushes\Artemis.Plugins.LayerBrushes.SolidPercentage\Artemis.Plugins.LayerBrushes.SolidPercentage.csproj
       - name: Upload SolidPercentage
@@ -284,10 +254,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\LayerEffects /s
       - name: Build FlickeringLights
         run: dotnet publish -c Release .\Plugins\src\LayerEffects\Artemis.Plugins.LayerEffect.FlickeringLights\Artemis.Plugins.LayerEffect.FlickeringLights.csproj
       - name: Upload FlickeringLights
@@ -300,10 +268,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\Modules /s
       - name: Build Json Module
         run: dotnet publish -c Release .\Plugins\src\Modules\Artemis.Plugins.Modules.Json\Artemis.Plugins.Modules.Json.csproj
       - name: Upload Json Module
@@ -316,10 +282,8 @@ jobs:
     runs-on: windows-latest
     needs: setup
     steps:
-      - name: Setup .NET 9
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 9.0.x
+      - name: Log directory
+        run: dir Plugins\src\Nodes /s
       - name: Build Nodes Extra
         run: dotnet publish -c Release .\Plugins\src\Nodes\Artemis.Plugins.Nodes.Extra\Artemis.Plugins.Nodes.Extra.csproj
       - name: Upload Nodes Extra
