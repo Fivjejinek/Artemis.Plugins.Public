@@ -14,20 +14,21 @@ namespace Artemis.Plugins.ExtendedWebAPI.Controllers
 {
     internal class ColorController : WebApiController
     {
-        private readonly IRgbDeviceService _rgbDeviceService;
+        private readonly IRgbServiceProvider _rgbServiceProvider;
         private readonly ILogger _logger;
 
-        public ColorController(IRgbDeviceService rgbDeviceService, ILogger logger)
+        public ColorController(IRgbServiceProvider rgbServiceProvider, ILogger logger)
         {
-            _rgbDeviceService = rgbDeviceService;
+            _rgbServiceProvider = rgbServiceProvider;
             _logger = logger;
         }
 
         [Route(HttpVerbs.Get, "/extended-rest-api/get-led-color/{deviceName}/{ledId}")]
         public async Task GetLedColor(string deviceName, string ledId)
         {
-            // IRgbDeviceService exposes EnabledDevices
-            ArtemisDevice device = _rgbDeviceService.EnabledDevices
+            // IRgbServiceProvider exposes the RGBSurface
+            var device = _rgbServiceProvider.Surface.Devices
+                .OfType<ArtemisDevice>()
                 .FirstOrDefault(d => d.RgbDevice.DeviceInfo.DeviceName == deviceName);
 
             if (device == null)
