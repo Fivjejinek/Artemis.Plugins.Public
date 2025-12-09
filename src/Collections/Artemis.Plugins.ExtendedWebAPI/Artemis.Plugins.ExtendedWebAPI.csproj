@@ -18,20 +18,11 @@
     <PackageReference Include="RGB.NET.Core" Version="1.0.0-prerelease.46" />
   </ItemGroup>
 
-  <!-- Direct DLL references to net9.0 builds -->
+  <!-- Replace DLL references with project references -->
   <ItemGroup>
-    <Reference Include="Artemis.Core">
-      <HintPath>..\..\..\..\Artemis\src\Artemis.Core\bin\net9.0\Artemis.Core.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Artemis.UI.Shared">
-      <HintPath>..\..\..\..\Artemis\src\Artemis.UI.Shared\bin\net9.0\Artemis.UI.Shared.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Artemis.UI">
-      <HintPath>..\..\..\..\Artemis\src\Artemis.UI\bin\net9.0\Artemis.UI.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.Core\Artemis.Core.csproj" />
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj" />
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI\Artemis.UI.csproj" />
   </ItemGroup>
 
   <ItemGroup>
