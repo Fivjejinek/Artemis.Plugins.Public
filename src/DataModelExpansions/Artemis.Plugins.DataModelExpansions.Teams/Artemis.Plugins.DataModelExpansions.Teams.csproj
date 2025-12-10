@@ -7,10 +7,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <!-- Reference Artemis projects directly -->
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.Core\Artemis.Core.csproj" />
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj" />
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI\Artemis.UI.csproj" />
+    <!-- Reference Artemis projects directly (compile-only, no runtime copy) -->
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.Core\Artemis.Core.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI\Artemis.UI.csproj">
+      <Private>false</Private>
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </ProjectReference>
   </ItemGroup>
 
   <ItemGroup>
