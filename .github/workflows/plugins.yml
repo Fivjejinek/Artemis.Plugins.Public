@@ -94,21 +94,6 @@ jobs:
           name: Artemis.Plugins.DataModelExpansions.YTMdesktop
           path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.YTMdesktop/publish/**
 
-      # Devices
-      - name: Publish PowerPlay
-        run: dotnet publish -c Release Plugins/src/Device/PowerPlay/Artemis.Plugins.Devices.PowerPlay/Artemis.Plugins.Devices.PowerPlay.csproj -o Plugins/src/Device/PowerPlay/publish
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Artemis.Plugins.Devices.PowerPlay
-          path: Plugins/src/Device/PowerPlay/publish/**
-
-      - name: Publish YeeLight
-        run: dotnet publish -c Release Plugins/src/Device/YeeLight/Artemis.Plugins.Devices.YeeLight/Artemis.Plugins.Devices.YeeLight.csproj -o Plugins/src/Device/YeeLight/publish
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Artemis.Plugins.Devices.YeeLight
-          path: Plugins/src/Device/YeeLight/publish/**
-
       # LayerBrushes
       - name: Publish ConnectingDots
         run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.ConnectingDots/Artemis.Plugins.LayerBrushes.ConnectingDots.csproj -o Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.ConnectingDots/publish
