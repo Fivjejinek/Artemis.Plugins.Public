@@ -11,14 +11,32 @@
     <PackageReference Update="@(PackageReference)" IncludeAssets="compile;build" />
   </ItemGroup>
 
-  <!-- Project references to Artemis projects (compile-only, no runtime copy) -->
+  <!-- Direct DLL references to Artemis assemblies -->
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.Core\Artemis.Core.csproj" Private="false" ExcludeAssets="runtime" />
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj" Private="false" ExcludeAssets="runtime" />
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI\Artemis.UI.csproj" Private="false" ExcludeAssets="runtime" />
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.Storage\Artemis.Storage.csproj" Private="false" ExcludeAssets="runtime" />
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.WebClient.Updating\Artemis.WebClient.Updating.csproj" Private="false" ExcludeAssets="runtime" />
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.WebClient.Workshop\Artemis.WebClient.Workshop.csproj" Private="false" ExcludeAssets="runtime" />
+    <Reference Include="Artemis.Core">
+      <HintPath>..\..\..\..\Artemis\src\Artemis.Core\bin\net9.0\Artemis.Core.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Artemis.UI.Shared">
+      <HintPath>..\..\..\..\Artemis\src\Artemis.UI.Shared\bin\net9.0\Artemis.UI.Shared.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Artemis.UI">
+      <HintPath>..\..\..\..\Artemis\src\Artemis.UI\bin\net9.0\Artemis.UI.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Artemis.Storage">
+      <HintPath>..\..\..\..\Artemis\src\Artemis.Storage\bin\net9.0\Artemis.Storage.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Artemis.WebClient.Updating">
+      <HintPath>..\..\..\..\Artemis\src\Artemis.WebClient.Updating\bin\net9.0\Artemis.WebClient.Updating.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Artemis.WebClient.Workshop">
+      <HintPath>..\..\..\..\Artemis\src\Artemis.WebClient.Workshop\bin\net9.0\Artemis.WebClient.Workshop.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
