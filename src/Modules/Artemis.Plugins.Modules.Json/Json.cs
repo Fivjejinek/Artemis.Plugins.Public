@@ -1,11 +1,12 @@
 using Artemis.Core.Services;
 using Artemis.Core;
 using Artemis.Plugins.Modules.Json.Controllers;
+using Artemis.Core.Modules;
 
 namespace Artemis.Plugins.Modules.Json
 {
     [PluginFeature(Name = "Json Module")]
-    public class JsonModule : Module<JsonDataModel>
+    public class JsonModule : DataModelExpansion<JsonDataModel>
     {
         private readonly IWebServerService _webServerService;
         private WebApiControllerRegistration? _controllerRegistration;
