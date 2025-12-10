@@ -152,11 +152,3 @@ jobs:
         with:
           name: Artemis.Plugins.Modules.Json
           path: Plugins/src/Modules/Artemis.Plugins.Modules.Json/publish/**
-
-      # Nodes
-      - name: Publish NodesExtra
-        run: dotnet publish -c Release Plugins/src/Nodes/Artemis.Plugins.Nodes.Extra/Artemis.Plugins.Nodes.Extra.csproj -o Plugins/src/Nodes/Artemis.Plugins.Nodes.Extra/publish
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Artemis.Plugins.Nodes.Extra
-          path: Plugins/src/Nodes/Artemis.Plugins.Nodes.Extra/publish/**
