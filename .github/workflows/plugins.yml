@@ -49,7 +49,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.ExtendedWebAPI
-          path: Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/publish/**
+          path: |
+            Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/publish/Artemis.Plugins*
+            Plugins/src/Collections/Artemis.Plugins.ExtendedWebAPI/publish/plugin.json
 
       # DataModelExpansions
       - name: Publish DisplaySettings
@@ -57,42 +59,54 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.DisplaySettings
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.DisplaySettings/publish/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.DisplaySettings/publish/Artemis.Plugins*
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.DisplaySettings/publish/plugin.json
 
       - name: Publish Teams
         run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Teams/Artemis.Plugins.DataModelExpansions.Teams.csproj -o Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Teams/publish
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.Teams
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Teams/publish/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Teams/publish/Artemis.Plugins*
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Teams/publish/plugin.json
 
       - name: Publish OpenWeather
         run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.OpenWeather/Artemis.Plugins.DataModelExpansions.OpenWeather.csproj -o Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.OpenWeather/publish
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.OpenWeather
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.OpenWeather/publish/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.OpenWeather/publish/Artemis.Plugins*
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.OpenWeather/publish/plugin.json
 
       - name: Publish PowerPlan
         run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.PowerPlan/Artemis.Plugins.DataModelExpansions.PowerPlan.csproj -o Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.PowerPlan/publish
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.PowerPlan
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.PowerPlan/publish/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.PowerPlan/publish/Artemis.Plugins*
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.PowerPlan/publish/plugin.json
 
       - name: Publish Profiles
         run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Profiles/Artemis.Plugins.DataModelExpansions.Profiles.csproj -o Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Profiles/publish
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.Profiles
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Profiles/publish/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Profiles/publish/Artemis.Plugins*
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.Profiles/publish/plugin.json
 
       - name: Publish YTMdesktop
         run: dotnet publish -c Release Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.YTMdesktop/Artemis.Plugins.DataModelExpansions.YTMdesktop.csproj -o Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.YTMdesktop/publish
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.DataModelExpansions.YTMdesktop
-          path: Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.YTMdesktop/publish/**
+          path: |
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.YTMdesktop/publish/Artemis.Plugins*
+            Plugins/src/DataModelExpansions/Artemis.Plugins.DataModelExpansions.YTMdesktop/publish/plugin.json
 
       # Devices
       - name: Publish PowerPlay
@@ -100,14 +114,18 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Devices.PowerPlay
-          path: Plugins/src/Device/PowerPlay/publish/**
+          path: |
+            Plugins/src/Device/PowerPlay/publish/Artemis.Plugins*
+            Plugins/src/Device/PowerPlay/publish/plugin.json
 
       - name: Publish YeeLight
         run: dotnet publish -c Release Plugins/src/Device/YeeLight/Artemis.Plugins.Devices.YeeLight/Artemis.Plugins.Devices.YeeLight.csproj -o Plugins/src/Device/YeeLight/publish
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Devices.YeeLight
-          path: Plugins/src/Device/YeeLight/publish/**
+          path: |
+            Plugins/src/Device/YeeLight/publish/Artemis.Plugins*
+            Plugins/src/Device/YeeLight/publish/plugin.json
 
       # LayerBrushes
       - name: Publish ConnectingDots
@@ -115,42 +133,54 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.ConnectingDots
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.ConnectingDots/publish/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.ConnectingDots/publish/Artemis.Plugins*
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.ConnectingDots/publish/plugin.json
 
       - name: Publish DrippingPaint
         run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.DrippingPaint/Artemis.Plugins.LayerBrushes.DrippingPaint.csproj -o Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.DrippingPaint/publish
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.DrippingPaint
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.DrippingPaint/publish/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.DrippingPaint/publish/Artemis.Plugins*
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.DrippingPaint/publish/plugin.json
 
       - name: Publish Nexus
         run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Nexus/Artemis.Plugins.LayerBrushes.Nexus.csproj -o Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Nexus/publish
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Nexus
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Nexus/publish/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Nexus/publish/Artemis.Plugins*
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Nexus/publish/plugin.json
 
       - name: Publish Ripples
         run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Ripples/Artemis.Plugins.LayerBrushes.Ripples.csproj -o Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Ripples/publish
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Ripples
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Ripples/publish/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Ripples/publish/Artemis.Plugins*
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Ripples/publish/plugin.json
 
       - name: Publish Shuffle
         run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Shuffle/Artemis.Plugins.LayerBrushes.Shuffle.csproj -o Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Shuffle/publish
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.Shuffle
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Shuffle/publish/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Shuffle/publish/Artemis.Plugins*
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.Shuffle/publish/plugin.json
 
       - name: Publish SolidPercentage
         run: dotnet publish -c Release Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.SolidPercentage/Artemis.Plugins.LayerBrushes.SolidPercentage.csproj -o Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.SolidPercentage/publish
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerBrushes.SolidPercentage
-          path: Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.SolidPercentage/publish/**
+          path: |
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.SolidPercentage/publish/Artemis.Plugins*
+            Plugins/src/LayerBrushes/Artemis.Plugins.LayerBrushes.SolidPercentage/publish/plugin.json
 
       # LayerEffects
       - name: Publish FlickeringLights
@@ -158,7 +188,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.LayerEffect.FlickeringLights
-          path: Plugins/src/LayerEffects/Artemis.Plugins.LayerEffect.FlickeringLights/publish/**
+          path: |
+            Plugins/src/LayerEffects/Artemis.Plugins.LayerEffect.FlickeringLights/publish/Artemis.Plugins*
+            Plugins/src/LayerEffects/Artemis.Plugins.LayerEffect.FlickeringLights/publish/plugin.json
 
       # Modules
       - name: Publish JsonModule
@@ -166,7 +198,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Modules.Json
-          path: Plugins/src/Modules/Artemis.Plugins.Modules.Json/publish/**
+          path: |
+            Plugins/src/Modules/Artemis.Plugins.Modules.Json/publish/Artemis.Plugins*
+            Plugins/src/Modules/Artemis.Plugins.Modules.Json/publish/plugin.json
 
       # Nodes
       - name: Publish NodesExtra
@@ -174,4 +208,6 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Artemis.Plugins.Nodes.Extra
-          path: Plugins/src/Nodes/Artemis.Plugins.Nodes.Extra/publish/**
+          path: |
+            Plugins/src/Nodes/Artemis.Plugins.Nodes.Extra/publish/Artemis.Plugins*
+            Plugins/src/Nodes/Artemis.Plugins.Nodes.Extra/publish/plugin.json
