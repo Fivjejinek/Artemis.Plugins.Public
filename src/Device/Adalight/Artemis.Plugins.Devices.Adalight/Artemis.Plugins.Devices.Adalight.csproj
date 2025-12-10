@@ -1,47 +1,43 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
-		<Platforms>x64</Platforms>
-		<EnableDynamicLoading>true</EnableDynamicLoading>
-		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
-	</PropertyGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <Platforms>x64</Platforms>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Avalonia" Version="0.10.15" />
-		<PackageReference Include="Avalonia.ReactiveUI" Version="0.10.15" />
-		<PackageReference Include="FluentAvaloniaUI" Version="1.4.1" />
-		<PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
-		<PackageReference Include="ReactiveUI" Version="17.1.50" />
-		<PackageReference Include="ReactiveUI.Validation" Version="2.2.1" />
-		<PackageReference Include="Serilog" Version="2.10.0" />
-		<PackageReference Include="SkiaSharp" Version="2.88.1-preview.1" />
-		<PackageReference Include="RGB.NET.Core" Version="1.0.0-prerelease.46" />
+  <!-- External packages -->
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.15" />
+    <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.15" />
+    <PackageReference Include="FluentAvaloniaUI" Version="1.4.1" />
+    <PackageReference Include="Material.Icons.Avalonia" Version="1.0.2" />
+    <PackageReference Include="ReactiveUI" Version="17.1.50" />
+    <PackageReference Include="ReactiveUI.Validation" Version="2.2.1" />
+    <PackageReference Include="Serilog" Version="4.3.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.1-preview.1" />
+    <PackageReference Include="RGB.NET.Core" Version="1.0.0-prerelease.46" />
+    <PackageReference Include="ArtemisRGB.Plugins.BuildTask" Version="1.1.0" />
+  </ItemGroup>
 
-		<!--All packages Artemis already references are compile-only dependencies-->
-		<PackageReference Update="@(PackageReference)" IncludeAssets="compile;build" />
-	</ItemGroup>
+  <!-- RGB.NET device project -->
+  <ItemGroup>
+    <ProjectReference Include="..\RGB.NET.Devices.Adalight\RGB.NET.Devices.Adalight.csproj" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\RGB.NET.Devices.Adalight\RGB.NET.Devices.Adalight.csproj" />
-	</ItemGroup>
+  <!-- Reference Artemis projects directly -->
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Artemis\src\Artemis.Core\Artemis.Core.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\..\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\..\Artemis\src\Artemis.UI\Artemis.UI.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\..\Artemis\src\Artemis.Storage\Artemis.Storage.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\..\Artemis\src\Artemis.WebClient.Updating\Artemis.WebClient.Updating.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\..\Artemis\src\Artemis.WebClient.Workshop\Artemis.WebClient.Workshop.csproj" Private="false" ExcludeAssets="runtime" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<Reference Include="Artemis.Core">
-			<HintPath>..\..\..\..\..\Artemis\src\Artemis.Core\bin\net6.0\Artemis.Core.dll</HintPath>
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="Artemis.UI.Shared">
-			<HintPath>..\..\..\..\..\Artemis\src\Artemis.UI.Shared\bin\net6.0\Artemis.UI.Shared.dll</HintPath>
-			<Private>false</Private>
-		</Reference>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="Layouts\**" CopyToOutputDirectory="PreserveNewest" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include="plugin.json" CopyToOutputDirectory="PreserveNewest" />
-		<PackageReference Include="ArtemisRGB.Plugins.BuildTask" Version="1.1.0" />
-	</ItemGroup>
+  <!-- Plugin metadata and layouts -->
+  <ItemGroup>
+    <Content Include="Layouts\**" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="plugin.json" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
