@@ -19,7 +19,7 @@
   <!-- External packages -->
   <ItemGroup>
     <PackageReference Include="Serilog" Version="4.3.0" />
-    <PackageReference Include="SkiaSharp" Version="2.88.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.9" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="106.12.0" />
     <PackageReference Include="Microsoft.Win32.SystemEvents" Version="6.0.1" />
