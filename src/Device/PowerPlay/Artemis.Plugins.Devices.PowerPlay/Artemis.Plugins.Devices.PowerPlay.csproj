@@ -6,10 +6,13 @@
     <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
   </PropertyGroup>
 
-  <!-- External packages -->
+  <!-- External packages (aligned with Artemis dependencies) -->
   <ItemGroup>
-    <PackageReference Include="SkiaSharp" Version="2.88.1-preview.1" />
-    <PackageReference Include="RGB.NET.Core" Version="1.0.0-prerelease.58" />
+    <!-- Updated to match ArtemisRGB.Core requirement -->
+    <PackageReference Include="SkiaSharp" Version="2.88.9" />
+    <PackageReference Include="RGB.NET.Core" Version="3.0.0" />
+
+    <!-- Other packages -->
     <PackageReference Include="HidSharp" Version="2.1.0" />
     <PackageReference Include="ArtemisRGB.Plugins.BuildTask" Version="1.1.0" />
   </ItemGroup>
