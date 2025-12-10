@@ -1,36 +1,30 @@
-﻿using Artemis.Core.Modules;
 using Artemis.Core.Services;
+using Artemis.Core;
 using Artemis.Plugins.Modules.Json.Controllers;
-using Artemis.Plugins.Modules.Json.DataModels;
-using System.Collections.Generic;
-using Artemis.Plugins.Modules.Json.Services.JsonDataModelServices;
 
 namespace Artemis.Plugins.Modules.Json
 {
-    public class Json : Module<JsonDataModel>
+    [PluginFeature(Name = "Json Module")]
+    public class JsonModule : Module<JsonDataModel>
     {
         private readonly IWebServerService _webServerService;
-        private readonly JsonDataModelServices _jsonDataModelServices;
+        private WebApiControllerRegistration? _controllerRegistration;
 
-        public Json(JsonDataModelServices jsonDataModelServices, IWebServerService webServerService)
+        public JsonModule(IWebServerService webServerService)
         {
-            _jsonDataModelServices = jsonDataModelServices;
             _webServerService = webServerService;
         }
 
-        public override List<IModuleActivationRequirement> ActivationRequirements => null;
-
         public override void Enable()
         {
-            _jsonDataModelServices.Initialize(DataModel);
-            _jsonDataModelServices.LoadFromRepository();
-            _webServerService.AddController<JsonController>(this);
+            // Add controller with explicit path
+            _controllerRegistration = _webServerService.AddController<JsonController>(this, "json");
         }
 
         public override void Disable()
         {
-            _webServerService.RemoveController<JsonController>();
+            if (_controllerRegistration != null)
+                _webServerService.RemoveController(_controllerRegistration);
         }
-        public override void Update(double deltaTime) { }
     }
 }
