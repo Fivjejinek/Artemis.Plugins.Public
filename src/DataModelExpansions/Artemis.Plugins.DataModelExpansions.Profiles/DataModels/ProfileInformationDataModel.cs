@@ -23,7 +23,6 @@ namespace Artemis.Plugins.DataModelExpansions.Profiles.DataModels
             Order = profileConfiguration.Order;
             IsActive = profileConfiguration.Profile != null;
             IsSuspended = profileConfiguration.IsSuspended;
-            IsBeingEdited = profileConfiguration.IsBeingEdited;
             IsMissingModule = profileConfiguration.IsMissingModule;
             HasActivationCondition = profileConfiguration.ActivationCondition != null;
             ActivationConditionMet = profileConfiguration.ActivationConditionMet;
