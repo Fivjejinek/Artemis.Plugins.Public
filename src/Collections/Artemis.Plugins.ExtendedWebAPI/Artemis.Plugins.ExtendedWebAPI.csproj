@@ -13,18 +13,12 @@
 
   <!-- Project references to Artemis projects (compile-only, no runtime copy) -->
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.Core\Artemis.Core.csproj">
-      <Private>false</Private>
-      <ExcludeAssets>runtime</ExcludeAssets>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj">
-      <Private>false</Private>
-      <ExcludeAssets>runtime</ExcludeAssets>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI\Artemis.UI.csproj">
-      <Private>false</Private>
-      <ExcludeAssets>runtime</ExcludeAssets>
-    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.Core\Artemis.Core.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI\Artemis.UI.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.Storage\Artemis.Storage.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.WebClient.Updating\Artemis.WebClient.Updating.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.WebClient.Workshop\Artemis.WebClient.Workshop.csproj" Private="false" ExcludeAssets="runtime" />
   </ItemGroup>
 
   <ItemGroup>
