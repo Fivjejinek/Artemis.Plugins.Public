@@ -1,19 +1,32 @@
-﻿using Artemis.Core;
+using Artemis.Core;
 using Artemis.Core.Services;
 using Artemis.Plugins.Nodes.Extra.MathNodes;
 
 namespace Artemis.Plugins.Nodes.MathExtra
 {
-    public class MathExtraPluginBootstrapper : PluginBootstrapper
+    [PluginFeature(Name = "Math Extra Nodes")]
+    public class MathExtraPluginBootstrapper : PluginFeature
     {
-        public override void OnPluginEnabled(Plugin plugin)
+        private readonly INodeService _nodeService;
+
+        public MathExtraPluginBootstrapper(INodeService nodeService)
         {
-            INodeService _nodeService = plugin.Get<INodeService>();
-            _nodeService.RegisterNodeType(plugin, typeof(DivideNumericsNode));
-            _nodeService.RegisterNodeType(plugin, typeof(FullLerpNode));
-            _nodeService.RegisterNodeType(plugin, typeof(MultiplyNode));
-            _nodeService.RegisterNodeType(plugin, typeof(PercentageOfNode));
-            _nodeService.RegisterNodeType(plugin, typeof(AbsNumericNode));
+            _nodeService = nodeService;
+        }
+
+        public override void Enable()
+        {
+            // Register your custom math nodes
+            _nodeService.RegisterNode<DivideNumericsNode>();
+            _nodeService.RegisterNode<FullLerpNode>();
+            _nodeService.RegisterNode<MultiplyNode>();
+            _nodeService.RegisterNode<PercentageOfNode>();
+            _nodeService.RegisterNode<AbsNumericNode>();
+        }
+
+        public override void Disable()
+        {
+            // Nothing to clean up
         }
     }
 }
