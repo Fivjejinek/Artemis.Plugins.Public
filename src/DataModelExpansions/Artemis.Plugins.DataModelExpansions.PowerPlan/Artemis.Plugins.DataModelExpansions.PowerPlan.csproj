@@ -18,7 +18,6 @@
 
   <!-- External packages -->
   <ItemGroup>
-    <PackageReference Include="Serilog" Version="2.11.0" />
     <PackageReference Include="System.Management" Version="6.0.0" />
     <PackageReference Include="ArtemisRGB.Plugins.BuildTask" Version="1.1.0" />
   </ItemGroup>
