@@ -1,12 +1,12 @@
-using Artemis.Core.Services;
+#nullable enable
 using Artemis.Core;
+using Artemis.Core.Services;
 using Artemis.Plugins.Modules.Json.Controllers;
-using Artemis.Core.Modules;
 
 namespace Artemis.Plugins.Modules.Json
 {
     [PluginFeature(Name = "Json Module")]
-    public class JsonModule : DataModelExpansion<JsonDataModel>
+    public class JsonModule : PluginFeature
     {
         private readonly IWebServerService _webServerService;
         private WebApiControllerRegistration? _controllerRegistration;
@@ -18,7 +18,7 @@ namespace Artemis.Plugins.Modules.Json
 
         public override void Enable()
         {
-            // Add controller with explicit path
+            // Register controller at /json
             _controllerRegistration = _webServerService.AddController<JsonController>(this, "json");
         }
 
