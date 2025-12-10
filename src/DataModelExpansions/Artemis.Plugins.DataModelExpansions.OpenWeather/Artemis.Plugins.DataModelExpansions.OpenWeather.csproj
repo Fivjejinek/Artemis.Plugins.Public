@@ -8,15 +8,17 @@
 
   <!-- Direct project references to Artemis -->
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.Core\Artemis.Core.csproj" />
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj" />
-    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI\Artemis.UI.csproj" />
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.Core\Artemis.Core.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI.Shared\Artemis.UI.Shared.csproj" Private="false" ExcludeAssets="runtime" />
+    <ProjectReference Include="..\..\..\..\Artemis\src\Artemis.UI\Artemis.UI.csproj" Private="false" ExcludeAssets="runtime" />
   </ItemGroup>
 
   <!-- Plugin metadata -->
   <ItemGroup>
     <Content Include="plugin.json" CopyToOutputDirectory="PreserveNewest" />
     <PackageReference Include="ArtemisRGB.Plugins.BuildTask" Version="1.1.0" />
+    <!-- Add the missing Awesomio package -->
+    <PackageReference Include="Awesomio.Weather" Version="1.1.1" />
   </ItemGroup>
 
   <!-- Avalonia view code-behind -->
